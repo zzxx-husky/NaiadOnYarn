@@ -27,13 +27,13 @@ yarn jar ./target/NaiadOnYarn-1.0-SNAPSHOT.jar NaiadYarnClient\
 1. By only running `yarn jar ./target/NaiadOnYarn-1.0-SNAPSHOT.jar NaiadYarnClient` will show all the available arguments. 
 2. `app_name` tells the name of the yarn application;
 3. `conatiner_memory`, `container_vcores` and `app_priority` specify 
-the memory (in GB), number of virtual cores and priority of one worker container.
+the memory (in MB), number of virtual cores and priority of one worker container.
 One worker container contains only one naiad process.
-4. `master_memory` specifies the memory (in GB) required by the application master
+4. `master_memory` specifies the memory (in MB) required by the application master
 who just simply manages the worker containers. Because naiad doesn't have master, 
 usually we don't need to give too much memory to the application master.
 5. `program` tells the naiad program we want to run with the arguments that
-will be passed to the program. **Please use `'` instead of `"` here**.
+will be passed to the program. **Please use either `'` or `"` to group the program with its arguments together in the script.**
 6. `num_process` tells how many naiad processes are there. This equals to
 the number of worker containers that will be created.
 
@@ -50,3 +50,5 @@ the port by 1 automatically. This is optional. Default to 2100.
 9. `log_dir` tells the directory that the logs of worker containers, master application will be written to. 
 This is optional. If not given, the logs will be located at what is specified in yarn configuration.
 
+If anything goes wrong, you may need to check the logs of application master and worker containers. Also check the output message of client as client will output
+the complete command that is sent to application master.

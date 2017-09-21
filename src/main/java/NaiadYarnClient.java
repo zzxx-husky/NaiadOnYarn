@@ -143,7 +143,7 @@ public class NaiadYarnClient {
             if (!mHosts.isEmpty() && mNumProcesses != numProcessInHosts()) {
                 throw new IllegalArgumentException(
                     "Illegal number of processes specified, which is different from the number of hosts specified in `hosts`. " +
-                        "Number of process given: " + numProcessInHosts() + ", number of hosts: " + mHosts.size());
+                        "Number of process given: " + mNumProcesses + ", number of hosts: " + numProcessInHosts());
             }
         } else {
             if (cliParser.hasOption("hosts")) {
